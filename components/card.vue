@@ -9,12 +9,6 @@ defineProps<{
 const previewImage = (url: string) => {
     showImagePreview([url]);
 };
-
-const { y } = useWindowScroll();
-const parallax = computed(() => {
-    if (!document?.scrollingElement) return 0;
-    return Math.floor(60 * (y.value / document.scrollingElement.clientHeight));
-});
 </script>
 
 <template>
@@ -22,16 +16,11 @@ const parallax = computed(() => {
         <div
             class="rounded-tl-3xl rounded-br-3xl bg-black h-10 text-white text-lg px-5 relative flex items-center justify-between overflow-hidden"
         >
-            <div
+            <img
+                src="/moon.png"
+                alt="moon"
                 class="absolute h-[200%] top-1/2 left-1/2 opacity-80 -translate-x-1/2 -translate-y-1/2"
-            >
-                <img
-                    src="/moon.png"
-                    alt="moon"
-                    class="h-full"
-                    :style="{ transform: `translateY(${parallax}%)` }"
-                />
-            </div>
+            />
             <span class="h-[1px] w-[60px] bg-white"></span>
             <span class="h-2 w-2 bg-white rotate-45"></span>
             <span class="relative"> {{ title }}</span>
