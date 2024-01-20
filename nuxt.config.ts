@@ -13,6 +13,14 @@ export default defineNuxtConfig({
             link: [{ rel: 'icon', type: 'image/png', href: '/logo.png' }],
         },
     },
-    modules: ['@vant/nuxt', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
+    modules: [
+        '@vant/nuxt',
+        '@nuxtjs/tailwindcss',
+        '@vueuse/nuxt',
+        'nuxt-mongoose',
+    ],
     devtools: { enabled: true },
+    build: {
+        transpile: [/echarts/],
+    },
 });

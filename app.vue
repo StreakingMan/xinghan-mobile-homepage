@@ -3,10 +3,6 @@ const active = ref('home');
 watch(active, (value) => {
     navigateTo({ path: `/${value}` });
 });
-const currentTitle = computed(() => {
-    const tab = tabs.find((tab) => tab.name === active.value);
-    return tab ? tab.text : '';
-});
 
 const tabs = [
     {
@@ -33,7 +29,7 @@ const tabs = [
 </script>
 
 <template>
-    <NuxtLayout :title="currentTitle">
+    <NuxtLayout>
         <NuxtPage />
     </NuxtLayout>
     <van-tabbar v-model="active">
