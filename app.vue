@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const active = ref('home');
+const route = useRoute();
+const active = ref(route.path.replace('/', '') || 'home');
 watch(active, (value) => {
     navigateTo({ path: `/${value}` });
 });
