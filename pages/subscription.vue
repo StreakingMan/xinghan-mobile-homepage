@@ -25,14 +25,15 @@ const phoneNumber = () => [
 const loading = ref(false);
 const onSubmit = async () => {
     loading.value = true;
-    try {
-        await useFetch('/api/reserve', {
-            method: 'POST',
-            body: JSON.stringify(form),
-        });
-        showSuccessToast('提交成功，请等待工作人员联系');
-    } catch (e) {
+    const { error } = await useFetch('/api/reserve', {
+        method: 'POST',
+        body: JSON.stringify(form),
+    });
+    if (error.value) {
+        console.log(error.value);
         showFailToast('服务器正在开小差，请稍后再试');
+    } else {
+        showSuccessToast('提交成功，请等待工作人员联系');
     }
     loading.value = false;
 };
