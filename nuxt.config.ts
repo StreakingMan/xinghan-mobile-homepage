@@ -11,7 +11,7 @@ export default defineNuxtConfig({
                 },
             ],
             link: [{ rel: 'icon', type: 'image/png', href: '/logo.png' }],
-            script: [{ src: 'http://res.wx.qq.com/open/js/jweixin-1.4.0.js' }],
+            script: [{ src: '//res.wx.qq.com/open/js/jweixin-1.4.0.js' }],
         },
     },
     modules: [
