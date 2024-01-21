@@ -8,6 +8,7 @@ use([LineChart, LegendComponent]);
 
 const { data } = await useFetch('/api/product');
 const products = computed(() => {
+    if (!data.value) return [];
     return (data.value as any).map((p: any) => {
         const option = {
             color: ['#d14a61', '#333', '#6ca1d3'],
