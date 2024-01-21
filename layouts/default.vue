@@ -12,7 +12,7 @@ const { y } = useWindowScroll();
         <img alt="logo" src="/logo-text.png" class="h-[40px] inline-block" />
     </header>
     <main
-        class="flex flex-col pt-[64px] pb-[var(--van-tabbar-height)] p-4 gap-4 text-zinc-800"
+        class="flex flex-col pt-[76px] pb-[var(--van-tabbar-height)] p-4 gap-4 text-zinc-800 bg-slate-50 min-h-screen"
     >
         <slot />
     </main>
