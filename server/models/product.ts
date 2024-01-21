@@ -37,7 +37,7 @@ export const ProductModel = defineMongooseModel('Product', {
         type: Array,
         required: true,
     },
-    '500ValueTend': {
+    '500valueTend': {
         type: Array,
         required: true,
     },
