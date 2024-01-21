@@ -26,7 +26,7 @@ const products = computed(() => {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                top: 24,
+                top: 30,
                 containLabel: true,
             },
             xAxis: {
@@ -39,7 +39,6 @@ const products = computed(() => {
                     showMaxLabel: true,
                     align: 'center',
                     fontSize: 10,
-                    formatter: (v: string) => v.replaceAll('-', '/'),
                 },
                 boundaryGap: false,
                 axisTick: { show: false },
@@ -49,11 +48,16 @@ const products = computed(() => {
                     type: 'value',
                     axisLine: { show: false },
                     axisTick: { show: false },
-                    axisLabel: { color: '#666' },
+                    axisLabel: {
+                        color: '#666',
+                        //保留并填充两位小数
+                        formatter: (value: number) => {
+                            return value.toFixed(2);
+                        },
+                    },
                     splitLine: {
                         lineStyle: {
-                            type: 'dashed',
-                            color: '#999',
+                            color: '#eee',
                         },
                     },
                     min: 'dataMin',
@@ -63,15 +67,16 @@ const products = computed(() => {
                     type: 'value',
                     axisLine: { show: false },
                     axisTick: { show: false },
-                    axisLabel: { color: '#6ca1d3' },
-                    splitLine: {
-                        lineStyle: {
-                            type: 'dashed',
-                            color: '#6ca1d3',
+                    axisLabel: {
+                        color: '#666',
+                        // 转化为百分比，保留两位小数
+                        formatter: (value: number) => {
+                            return (value * 100).toFixed(2) + '%';
                         },
                     },
-                    min: 0,
-                    max: 1,
+                    splitLine: { show: false },
+                    min: -0.3,
+                    max: 'dataMax',
                 },
             ],
             series: [
@@ -94,10 +99,8 @@ const products = computed(() => {
                     name: '最大回撤',
                     type: 'line',
                     yAxisIndex: 1,
-                    data: p['500valueTend'].map(() =>
-                        (0.5 + 0.1 * Math.random()).toFixed(3),
-                    ),
-                    lineStyle: { width: 1 },
+                    data: p.maxDrawdownTend,
+                    lineStyle: { width: 1, type: 'dashed' },
                 },
             ],
         };
@@ -122,7 +125,7 @@ const products = computed(() => {
                 v-for="({ title, value }, idx) in [
                     { title: '累计收益', value: p.acc },
                     { title: '今年以来收益', value: p.yearAcc },
-                    { title: '产品风险类型', value: '超高风险' },
+                    { title: '产品风险类型', value: p.riskType || '未知' },
                     { title: '基金经理', value: p.manager },
                     { title: '成立日期', value: p.createdAt },
                     { title: '认购起点', value: 'RMB ' + p.startingPoint },
