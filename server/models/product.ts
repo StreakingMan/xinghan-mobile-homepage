@@ -65,6 +65,6 @@ export const ProductModel = defineMongooseModel(
         },
     },
     {
-        collection: 'product',
+        collection: 'productV2',
     },
 );
