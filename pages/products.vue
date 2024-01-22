@@ -40,6 +40,7 @@ const products = computed(() => {
                     align: 'center',
                     fontSize: 10,
                 },
+                axisLine: { show: false },
                 boundaryGap: false,
                 axisTick: { show: false },
             },
