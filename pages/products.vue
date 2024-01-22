@@ -126,9 +126,6 @@ const products = computed(() => {
                     { title: '累计收益', value: p.acc },
                     { title: '今年以来收益', value: p.yearAcc },
                     { title: '产品风险类型', value: p.riskType || '未知' },
-                    { title: '基金经理', value: p.manager },
-                    { title: '成立日期', value: p.createdAt },
-                    { title: '认购起点', value: 'RMB ' + p.startingPoint },
                 ]"
                 :key="idx"
             >
