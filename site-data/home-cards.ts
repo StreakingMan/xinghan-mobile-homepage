@@ -16,7 +16,7 @@ export const homeCards = [
     {
         title: '投资体系导图',
         content: [
-            '<image>/investment-system-map.png',
+            '<image>/investment-system-map.jpg',
             '体系介绍：星瀚投资致力于打造低风险绝对收益型量化对冲基金产品，策略包含期指多空和指数增强两大系列。基金产品根据投资人需求设计了三种风险等级，分别为进取型、稳健型和保守型3条产品系列。',
         ],
     },

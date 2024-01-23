@@ -6,6 +6,8 @@ import { LegendComponent } from 'echarts/components';
 
 use([LineChart, LegendComponent]);
 
+const BACKDRAW_NAME = '动态回撤';
+
 const { data } = await useFetch('/api/product');
 const products = computed(() => {
     if (!data.value) return [];
@@ -16,7 +18,7 @@ const products = computed(() => {
                 data: [
                     { name: p.title, icon: 'rect' },
                     { name: p.compareTitle, icon: 'rect' },
-                    { name: '最大回撤', icon: 'rect' },
+                    { name: BACKDRAW_NAME, icon: 'rect' },
                 ],
                 textStyle: { color: 'black' },
                 itemWidth: 24,
@@ -61,8 +63,12 @@ const products = computed(() => {
                             color: '#eee',
                         },
                     },
-                    min: 'dataMin',
-                    max: 'dataMax',
+                    min(value: any) {
+                        return value.min * 0.95;
+                    },
+                    max(v: any) {
+                        return v.max * 1.05;
+                    },
                 },
                 {
                     type: 'value',
@@ -97,7 +103,7 @@ const products = computed(() => {
                 },
                 {
                     symbol: 'none',
-                    name: '最大回撤',
+                    name: BACKDRAW_NAME,
                     type: 'line',
                     yAxisIndex: 1,
                     data: p.maxDrawdownTend,
@@ -115,13 +121,13 @@ const products = computed(() => {
 
 <template>
     <div v-for="p in products" :key="p.title" class="flex flex-col gap-2">
-        <MoonTitle>{{ p.title }}</MoonTitle>
+        <CommonTitle>{{ p.title }}</CommonTitle>
         <div class="relative">
             <client-only>
                 <VChart class="h-[200px]" :option="p.option" />
             </client-only>
         </div>
-        <VanRow class="text-zinc-600 text-center">
+        <VanRow class="text-zinc-600 text-center" gutter="12">
             <template
                 v-for="({ title, value }, idx) in [
                     { title: '累计收益', value: p.acc },
@@ -131,15 +137,17 @@ const products = computed(() => {
                 :key="idx"
             >
                 <VanCol span="8">
-                    <div class="text-sm">{{ title }}</div>
-                    <div class="font-bold text-lg">{{ value }}</div>
+                    <div class="bg-gray-200 py-3 rounded">
+                        <div class="text-sm">{{ title }}</div>
+                        <div class="font-bold text-lg">{{ value }}</div>
+                    </div>
                 </VanCol>
             </template>
         </VanRow>
     </div>
 
     <div class="font-normal leading-relaxed text-zinc-600 mb-4">
-        补充申明：因我司2023年11月基金产品策略重大调整，全面转型量化对冲策略体系，故上图展示净值为2023年11月1日归1化后的折算净值，若想查阅基金产品成立以来完整净值可联系我司或者登录私募排排网官网查阅。
+        补充申明：因我司2023年11月以来，基金产品运营管理进行重大调整，基金产品体系全面转型为低风险量化对冲基金体系，故上图展示净值为2023年11月1日归一化后的折算净值，若想查阅基金产品成立以来完整净值可联系我司或者登录私募排排网官网查阅。
     </div>
 </template>
 

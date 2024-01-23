@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { showImagePreview } from 'vant';
-import MoonTitle from '~/components/moon-title.vue';
 
 defineProps<{
     title: string;
@@ -14,9 +13,9 @@ const previewImage = (url: string) => {
 
 <template>
     <div>
-        <MoonTitle>
+        <CommonTitle>
             {{ title }}
-        </MoonTitle>
+        </CommonTitle>
         <div class="font-normal leading-relaxed flex flex-col gap-2 py-2">
             <template v-for="(item, index) in content" :key="index">
                 <img
