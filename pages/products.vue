@@ -125,7 +125,7 @@ const products = computed(() => {
         <CommonTitle>{{ p.title }}</CommonTitle>
 
         <client-only>
-            <VChart class="h-[200px] mt-2" :option="p.option" />
+            <VChart class="h-[200px]" :option="p.option" />
         </client-only>
 
         <VanRow class="text-zinc-600 text-center" gutter="12">
