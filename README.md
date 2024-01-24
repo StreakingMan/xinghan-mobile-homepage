@@ -1,6 +1,9 @@
-# Nuxt 3 Minimal Starter
+# 企业移动端微官网Demo
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<p>
+    <img src="./public/preview-1.png" alt="preview-1"/>
+    <img src="./public/preview-2.png" alt="preview-2"/>
+</p>
 
 ## Setup
 
