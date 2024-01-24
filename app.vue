@@ -12,12 +12,12 @@ const tabs = [
         icon: 'home-o',
     },
     {
-        name: 'products',
+        name: 'product',
         text: '旗下产品',
         icon: 'chart-trending-o',
     },
     {
-        name: 'subscription',
+        name: 'reserve',
         text: '产品认购',
         icon: 'cash-o',
     },
