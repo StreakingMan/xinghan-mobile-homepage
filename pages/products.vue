@@ -5,6 +5,10 @@ import { LineChart } from 'echarts/charts';
 import { LegendComponent } from 'echarts/components';
 import { statement } from '~/site-data/statement';
 
+definePageMeta({
+    alias: '/product',
+});
+
 use([LineChart, LegendComponent]);
 
 const BACKDRAW_NAME = '动态回撤';

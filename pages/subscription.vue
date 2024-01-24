@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+    alias: '/reserve',
+});
+
 const form = reactive({
     selectedFund: '',
     referee: '',
