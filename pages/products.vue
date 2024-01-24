@@ -3,6 +3,7 @@ import VChart from 'vue-echarts';
 import { use } from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { LegendComponent } from 'echarts/components';
+import { statement } from '~/site-data/statement';
 
 use([LineChart, LegendComponent]);
 
@@ -92,7 +93,7 @@ const products = computed(() => {
                     name: p.title,
                     type: 'line',
                     data: p.netAssetValueTend,
-                    lineStyle: { width: 1 },
+                    lineStyle: { width: 2 },
                 },
                 {
                     symbol: 'none',
@@ -122,11 +123,11 @@ const products = computed(() => {
 <template>
     <div v-for="p in products" :key="p.title" class="flex flex-col gap-2">
         <CommonTitle>{{ p.title }}</CommonTitle>
-        <div class="relative">
-            <client-only>
-                <VChart class="h-[200px]" :option="p.option" />
-            </client-only>
-        </div>
+
+        <client-only>
+            <VChart class="h-[200px] mt-2" :option="p.option" />
+        </client-only>
+
         <VanRow class="text-zinc-600 text-center" gutter="12">
             <template
                 v-for="({ title, value }, idx) in [
@@ -146,8 +147,8 @@ const products = computed(() => {
         </VanRow>
     </div>
 
-    <div class="font-normal leading-relaxed text-zinc-600 mb-4">
-        补充申明：因我司2023年11月以来，基金产品运营管理进行重大调整，基金产品体系全面转型为低风险量化对冲基金体系，故上图展示净值为2023年11月1日归一化后的折算净值，若想查阅基金产品成立以来完整净值可联系我司或者登录私募排排网官网查阅。
+    <div class="font-normal leading-relaxed text-zinc-600 mb-4 text-justify">
+        {{ statement }}
     </div>
 </template>
 
