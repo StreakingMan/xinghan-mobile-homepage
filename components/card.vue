@@ -25,7 +25,7 @@ const previewImage = (url: string) => {
                     alt=""
                     @click="previewImage(item.slice(7))"
                 />
-                <p v-else class="text-justify">{{ item }}</p>
+                <p v-else class="text-justify" v-html="item"></p>
             </template>
         </div>
     </div>
