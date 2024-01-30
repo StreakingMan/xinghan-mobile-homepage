@@ -133,7 +133,7 @@ const products = computed(() => {
                 v-for="({ title, value }, idx) in [
                     { title: '累计收益', value: p.acc },
                     { title: '今年以来收益', value: p.yearAcc },
-                    { title: '产品风险类型', value: p.riskType || '未知' },
+                    { title: '产品类型', value: p.riskType || '未知' },
                 ]"
                 :key="idx"
             >
