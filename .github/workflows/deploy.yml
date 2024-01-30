@@ -20,6 +20,8 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
+      - name: Env test
+        run: node ./test.mjs
       - name: Build
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
