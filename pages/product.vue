@@ -98,7 +98,7 @@ const products = computed(() => {
                 },
                 {
                     symbol: 'none',
-                    name: p.compareTitle,
+                    name: COMPARE_NAME,
                     type: 'line',
                     data: p['500valueTend'],
                     lineStyle: { width: 1 },
