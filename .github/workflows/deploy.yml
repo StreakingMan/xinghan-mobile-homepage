@@ -36,6 +36,9 @@ jobs:
           REMOTE_HOST: "49.234.69.170" 
           REMOTE_USER: "ubuntu" 
           TARGET: "~/website/xinghan-mobile-web/.output/"
+          SCRIPT_BEFORE: |
+            whoami
+            ls -al
           SCRIPT_AFTER: |
             sudo pm2 restart ecosystem.config.cjs
 
