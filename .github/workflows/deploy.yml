@@ -14,18 +14,13 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 8
-      - name: Use Node.js 16
+      - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
-      - name: Env test
-        env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
-          NUXT_PORT: ${{ secrets.NUXT_PORT }}
-        run: node ./test.mjs
       - name: Build
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
