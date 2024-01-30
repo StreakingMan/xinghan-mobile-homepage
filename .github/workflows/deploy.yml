@@ -22,7 +22,7 @@ jobs:
         run: pnpm install
       - name: Build
         env:
-          MONGODB_URI: ${{ secrets.SSH_PRIVATE_KEY }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
           NUXT_PORT: ${{ secrets.NUXT_PORT }}
         run: pnpm build
       - name: Deploy to Server
