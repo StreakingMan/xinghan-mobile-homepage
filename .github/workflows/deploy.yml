@@ -40,6 +40,7 @@ jobs:
             whoami
             ls -al
           SCRIPT_AFTER: |
+            cd ~/website/xinghan-mobile-homepage/
             sudo pm2 restart ecosystem.config.cjs
 
 
