@@ -10,18 +10,10 @@ use([LineChart, LegendComponent]);
 const BACKDRAW_NAME = '动态回撤';
 const COMPARE_NAME = '同期中证500';
 
-const { data, pending, error } = await useFetch('/api/product');
-console.log(data.value, pending.value, error.value);
-watch(
-    () => ({
-        data: data.value,
-        pending: pending.value,
-        error: error.value,
-    }),
-    (v) => {
-        console.log(v);
-    },
-);
+const { data } = await useFetch('/api/product', {
+    server: false,
+});
+
 const products = computed(() => {
     if (!data.value) return [];
     return (data.value as any).map((p: any) => {

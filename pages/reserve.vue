@@ -8,7 +8,9 @@ const form = reactive({
     phone: '',
     remark: '',
 });
-const { data } = await useFetch('/api/product');
+const { data } = await useFetch('/api/product', {
+    server: false,
+});
 const productOptions = computed(() => {
     if (!data.value) return [];
     return (data.value as any).map((p: any) => p.title);
