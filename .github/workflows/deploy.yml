@@ -29,18 +29,20 @@ jobs:
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           # 清空服务器目标目录下的文件
           ARGS: "-avzr --delete" 
           SOURCE: ".output/" 
           REMOTE_HOST: "49.234.69.170" 
-          REMOTE_USER: "ubuntu" 
+          REMOTE_USER: "ubuntu"
           TARGET: "~/website/xinghan-mobile-homepage/.output/"
-          SCRIPT_BEFORE: |
-            whoami
-            ls -al
-          SCRIPT_AFTER: |
+      - name: Restart PM2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: "49.234.69.170"
+          username: "ubuntu"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
             cd ~/website/xinghan-mobile-homepage/
             sudo pm2 restart ecosystem.config.cjs
-
 
