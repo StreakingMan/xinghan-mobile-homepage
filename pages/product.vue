@@ -8,6 +8,7 @@ import { statement } from '~/site-data/statement';
 use([LineChart, LegendComponent]);
 
 const BACKDRAW_NAME = '动态回撤';
+const COMPARE_NAME = '同期中证500';
 
 const { data } = await useFetch('/api/product');
 const products = computed(() => {
@@ -18,7 +19,7 @@ const products = computed(() => {
             legend: {
                 data: [
                     { name: p.title, icon: 'rect' },
-                    { name: p.compareTitle, icon: 'rect' },
+                    { name: COMPARE_NAME, icon: 'rect' },
                     { name: BACKDRAW_NAME, icon: 'rect' },
                 ],
                 textStyle: { color: 'black' },
