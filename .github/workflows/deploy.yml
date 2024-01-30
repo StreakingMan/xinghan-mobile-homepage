@@ -21,18 +21,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build
+        env:
+          MONGODB_URI: ${{ secrets.SSH_PRIVATE_KEY }}
+          NUXT_PORT: ${{ secrets.NUXT_PORT }}
         run: pnpm build
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
-            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
-            # 清空服务器目标目录下的文件
-            ARGS: "-avzr --delete" 
-            SOURCE: ".output/" 
-            REMOTE_HOST: "49.234.69.170" 
-            REMOTE_USER: "ubuntu" 
-            TARGET: "~/website/xinghan-mobile-web/.output/"
-            SCRIPT_AFTER: |
-              sudo pm2 restart ecosystem.config.cjs
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
+          # 清空服务器目标目录下的文件
+          ARGS: "-avzr --delete" 
+          SOURCE: ".output/" 
+          REMOTE_HOST: "49.234.69.170" 
+          REMOTE_USER: "ubuntu" 
+          TARGET: "~/website/xinghan-mobile-web/.output/"
+          SCRIPT_AFTER: |
+            sudo pm2 restart ecosystem.config.cjs
 
 
