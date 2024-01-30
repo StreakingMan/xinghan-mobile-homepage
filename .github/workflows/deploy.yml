@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Env test
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          NUXT_PORT: ${{ secrets.NUXT_PORT }}
         run: node ./test.mjs
       - name: Build
         env:
