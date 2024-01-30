@@ -1,1 +1,1 @@
-console.log(process.env.MONGODB_URI)
+console.log('env:' + process.env.NUXT_PORT);
