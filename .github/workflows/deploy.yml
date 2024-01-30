@@ -35,7 +35,7 @@ jobs:
           SOURCE: ".output/" 
           REMOTE_HOST: "49.234.69.170" 
           REMOTE_USER: "ubuntu" 
-          TARGET: "~/website/xinghan-mobile-web/.output/"
+          TARGET: "~/website/xinghan-mobile-homepage/.output/"
           SCRIPT_BEFORE: |
             whoami
             ls -al
