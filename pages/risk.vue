@@ -67,11 +67,11 @@ const systems = computed(() => {
                             color: '#eee',
                         },
                     },
-                    min(value: any) {
-                        return value.min * 0.95;
+                    min(v: any) {
+                        return v.min > 0 ? v.min * 0.95 : v.min * 1.05;
                     },
                     max(v: any) {
-                        return v.max * 1.05;
+                        return v.max > 0 ? v.max * 1.05 : v.max * 0.95;
                     },
                 },
                 {
@@ -137,7 +137,9 @@ const systems = computed(() => {
         <VanRow class="text-zinc-600 text-center" gutter="12">
             <template v-for="({ title, desc }, idx) in s.infos" :key="idx">
                 <VanCol span="8">
-                    <div class="bg-gray-200 py-3 rounded">
+                    <div
+                        class="bg-gray-200 py-3 rounded h-full flex flex-col justify-between"
+                    >
                         <div class="text-sm">{{ title }}</div>
                         <div class="font-bold text-lg">{{ desc }}</div>
                     </div>
