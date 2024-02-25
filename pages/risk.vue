@@ -18,8 +18,11 @@ const systems = computed(() => {
             color: ['#d14a61', '#333', '#6ca1d3'],
             legend: {
                 data: [
-                    { name: s.firstLabel, icon: 'rect' },
-                    { name: s.secondLabel, icon: 'rect' },
+                    { name: s.signalTend.label, icon: 'rect' },
+                    ...s.profitTends.map((i: any) => ({
+                        name: i.label,
+                        icon: 'rect',
+                    })),
                 ],
                 textStyle: { color: 'black' },
                 itemWidth: 24,
@@ -98,19 +101,19 @@ const systems = computed(() => {
             series: [
                 {
                     symbol: 'none',
-                    name: s.firstLabel,
+                    name: s.signalTend.label,
                     type: 'line',
-                    data: s.firstTend,
+                    data: s.signalTend.data,
                     lineStyle: { width: 1 },
                 },
-                {
+                ...s.profitTends.map((i: any) => ({
                     symbol: 'none',
-                    name: s.secondLabel,
+                    name: i.label,
                     type: 'line',
-                    data: s.secondTend,
+                    data: i.data,
                     yAxisIndex: 1,
                     lineStyle: { width: 1 },
-                },
+                })),
             ],
         };
         return {
