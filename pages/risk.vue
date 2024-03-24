@@ -125,8 +125,9 @@ const systems = computed(() => {
 </script>
 
 <template>
-    <Card :title="riskDetail.title" :content="riskDetail.desc" />
-
+    <template v-for="(detail, idx) of riskDetail" :key="idx">
+        <Card :title="detail.title" :content="detail.desc" />
+    </template>
     <div v-for="s in systems" :key="s.title" class="flex flex-col gap-2">
         <CommonTitle>{{ s.title }}</CommonTitle>
 
