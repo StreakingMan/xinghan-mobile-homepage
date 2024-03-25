@@ -15,14 +15,11 @@ export const RiskSystemModel = defineMongooseModel(
             type: Array,
             required: true,
         },
-        signalTend: {
-            type: {
-                label: String,
-                data: Array,
-            },
-            required: true,
+        signalTitle: {
+            type: String,
+            required: false,
         },
-        profitTends: {
+        signalTends: {
             type: [
                 {
                     label: String,
@@ -30,6 +27,23 @@ export const RiskSystemModel = defineMongooseModel(
                 },
             ],
             required: true,
+        },
+        valueTitle: {
+            type: String,
+            required: false,
+        },
+        valueTends: {
+            type: [
+                {
+                    label: String,
+                    data: Array,
+                },
+            ],
+            required: true,
+        },
+        infoTitle: {
+            type: String,
+            required: false,
         },
         infos: {
             type: [
