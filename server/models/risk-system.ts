@@ -28,6 +28,10 @@ export const RiskSystemModel = defineMongooseModel(
             ],
             required: true,
         },
+        signalTimeTend: {
+            type: Array,
+            required: true,
+        },
         valueTitle: {
             type: String,
             required: false,

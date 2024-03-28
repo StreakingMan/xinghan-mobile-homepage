@@ -38,7 +38,7 @@ const systems = computed(() => {
                     itemHeight: 2,
                 },
                 grid: {
-                    left: 0,
+                    left: -40,
                     right: 0,
                     bottom: 0,
                     top: 30,
@@ -46,7 +46,7 @@ const systems = computed(() => {
                 },
                 xAxis: {
                     type: 'category',
-                    data: s.timeTend,
+                    data: s.signalTimeTend,
                     axisLabel: {
                         color: '#666',
                         interval: 10000000,
