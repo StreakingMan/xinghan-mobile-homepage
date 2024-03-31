@@ -132,7 +132,7 @@ const systems = computed(() => {
             },
             grid: {
                 left: 0,
-                right: 0,
+                right: s.valueTends.length > 2 ? 0 : 34,
                 bottom: 0,
                 top: 30,
                 containLabel: true,
@@ -176,28 +176,30 @@ const systems = computed(() => {
                         return v.max > 0 ? v.max * 1.05 : v.max * 0.95;
                     },
                 },
-                {
-                    type: 'value',
-                    axisLine: { show: false },
-                    axisTick: { show: false },
-                    axisLabel: {
-                        color: '#666',
-                        //保留并填充两位小数
-                        formatter: (value: number) => {
-                            return (value * 100).toFixed(2) + '%';
-                        },
-                    },
-                    splitLine: {
-                        lineStyle: {
-                            color: '#eee',
-                        },
-                    },
-                    min: -0.9,
-                    max: 0,
-                },
+                s.valueTends.length > 2
+                    ? {
+                          type: 'value',
+                          axisLine: { show: false },
+                          axisTick: { show: false },
+                          axisLabel: {
+                              color: '#666',
+                              //保留并填充两位小数
+                              formatter: (value: number) => {
+                                  return (value * 100).toFixed(2) + '%';
+                              },
+                          },
+                          splitLine: {
+                              lineStyle: {
+                                  color: '#eee',
+                              },
+                          },
+                          min: -0.9,
+                          max: 0,
+                      }
+                    : null,
             ],
             series: [
-                ...s.valueTends.slice(0, -1).map((i: any) => ({
+                ...s.valueTends.slice(0, 2).map((i: any) => ({
                     symbol: 'none',
                     name: i.label,
                     type: 'line',
@@ -205,7 +207,7 @@ const systems = computed(() => {
                     yAxisIndex: 0,
                     lineStyle: { width: 1 },
                 })),
-                ...s.valueTends.slice(-1).map((i: any) => ({
+                ...s.valueTends.slice(2).map((i: any) => ({
                     symbol: 'none',
                     name: i.label,
                     type: 'line',
