@@ -22,9 +22,9 @@ const tabs = [
         icon: 'cash-o',
     },
     {
-        name: 'join-us',
-        text: '招贤纳士',
-        icon: 'friends-o',
+        name: 'risk',
+        text: 'AI风控',
+        icon: 'desktop-o',
     },
 ];
 </script>
