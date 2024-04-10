@@ -12,6 +12,11 @@ const tabs = [
         icon: 'home-o',
     },
     {
+        name: 'risk',
+        text: 'AI风控',
+        icon: 'desktop-o',
+    },
+    {
         name: 'product',
         text: '旗下产品',
         icon: 'chart-trending-o',
@@ -20,11 +25,6 @@ const tabs = [
         name: 'reserve',
         text: '产品认购',
         icon: 'cash-o',
-    },
-    {
-        name: 'risk',
-        text: 'AI风控',
-        icon: 'desktop-o',
     },
 ];
 </script>
