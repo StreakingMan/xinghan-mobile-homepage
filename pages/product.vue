@@ -41,7 +41,7 @@ const products = computed(() => {
                 data: p.timeTend,
                 axisLabel: {
                     color: '#666',
-                    interval: 10000000,
+                    interval: p.timeTend.length / 2,
                     showMinLabel: true,
                     showMaxLabel: true,
                     align: 'center',

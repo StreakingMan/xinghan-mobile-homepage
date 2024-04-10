@@ -49,7 +49,7 @@ const systems = computed(() => {
                     data: s.signalTimeTend,
                     axisLabel: {
                         color: '#666',
-                        interval: 10000000,
+                        interval: s.signalTimeTend.length / 2,
                         showMinLabel: true,
                         showMaxLabel: true,
                         align: 'center',
@@ -142,7 +142,7 @@ const systems = computed(() => {
                 data: s.timeTend,
                 axisLabel: {
                     color: '#666',
-                    interval: 10000000,
+                    interval: s.timeTend.length / 2,
                     showMinLabel: true,
                     showMaxLabel: true,
                     align: 'center',
