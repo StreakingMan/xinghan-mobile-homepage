@@ -4,6 +4,7 @@ import { use } from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { LegendComponent } from 'echarts/components';
 import { statement } from '~/site-data/statement';
+import { xAxisTimeFormatter } from '~/utils/x-axis-time-formatter';
 
 use([LineChart, LegendComponent]);
 
@@ -41,7 +42,8 @@ const products = computed(() => {
                 data: p.timeTend,
                 axisLabel: {
                     color: '#666',
-                    interval: p.timeTend.length / 2,
+                    interval: 1,
+                    formatter: xAxisTimeFormatter(p.timeTend),
                     showMinLabel: true,
                     showMaxLabel: true,
                     align: 'center',

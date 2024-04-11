@@ -4,6 +4,7 @@ import VChart from 'vue-echarts';
 import { use } from 'echarts/core';
 import { LineChart, BarChart } from 'echarts/charts';
 import { LegendComponent } from 'echarts/components';
+import { xAxisTimeFormatter } from '~/utils/x-axis-time-formatter';
 
 use([LineChart, BarChart, LegendComponent]);
 
@@ -49,7 +50,8 @@ const systems = computed(() => {
                     data: s.signalTimeTend,
                     axisLabel: {
                         color: '#666',
-                        interval: s.signalTimeTend.length / 2,
+                        interval: 1,
+                        formatter: xAxisTimeFormatter(s.signalTimeTend),
                         showMinLabel: true,
                         showMaxLabel: true,
                         align: 'center',
@@ -142,7 +144,8 @@ const systems = computed(() => {
                 data: s.timeTend,
                 axisLabel: {
                     color: '#666',
-                    interval: s.timeTend.length / 2,
+                    interval: 1,
+                    formatter: xAxisTimeFormatter(s.timeTend),
                     showMinLabel: true,
                     showMaxLabel: true,
                     align: 'center',
