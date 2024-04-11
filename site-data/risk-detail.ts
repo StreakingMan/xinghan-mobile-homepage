@@ -3,7 +3,6 @@ export const riskDetail = [
         title: '风控系统原理简介',
         desc: [
             '星瀚人工智能风控系统，英文为AI-Risk Management System，简称AI-RMS，是由星瀚投资自主研发的投资风险控制专业系统。其原理从刻画市场知情交易者情绪出发，构建一套用于衡量市场情绪的风险因子体系，并采用多种AI算法形成模型矩阵，共同投票预测中短期市场指数多空方向，最后依据AI预测信号进行风险管理，主要应对A股市场整体下行风险预测与控制。',
-            '<image>/risk-map.png',
         ],
     },
     {
@@ -22,6 +21,6 @@ export const riskDetail = [
     },
     {
         title: 'T-RMS中频择时信号',
-        desc: ['多头/空头历史信号逐笔统计', '<image>/risk-table.png'],
+        desc: ['多头/空头历史信号逐笔统计', '<image>/risk-table.jpg'],
     },
 ];
