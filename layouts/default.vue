@@ -42,7 +42,7 @@ showConfirmDialog({
                 target="_blank"
                 rel="noopener noreferrer nofollow"
             >
-                浙ICP备17007857号-2
+                浙ICP备2025166436号-1
             </a>
         </p>
     </main>
