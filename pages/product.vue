@@ -127,7 +127,7 @@ const products = computed(() => {
 </script>
 
 <template>
-    <div v-for="p in products" :key="p.title" class="flex flex-col gap-10">
+    <div v-for="p in products" :key="p.title" class="flex flex-col gap-12">
         <CommonTitle>{{ p.title }}</CommonTitle>
 
         <client-only>
