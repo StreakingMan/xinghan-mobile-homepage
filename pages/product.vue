@@ -127,14 +127,14 @@ const products = computed(() => {
 </script>
 
 <template>
-    <div v-for="p in products" :key="p.title" class="flex flex-col gap-2">
+    <div v-for="p in products" :key="p.title" class="flex flex-col gap-6">
         <CommonTitle>{{ p.title }}</CommonTitle>
 
         <client-only>
             <VChart class="h-[200px]" :option="p.option" />
         </client-only>
 
-        <VanRow class="text-zinc-600 text-center" gutter="12">
+        <VanRow class="text-zinc-600 text-center mt-4" gutter="12">
             <template
                 v-for="({ title, value }, idx) in [
                     { title: '累计收益', value: p.acc },
