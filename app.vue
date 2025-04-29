@@ -8,12 +8,12 @@ watch(active, (value) => {
 const tabs = [
     {
         name: 'home',
-        text: '公司简介',
+        text: '关于星瀚',
         icon: 'home-o',
     },
     {
         name: 'product',
-        text: '旗下产品',
+        text: '旗舰基金',
         icon: 'chart-trending-o',
     },
     {
