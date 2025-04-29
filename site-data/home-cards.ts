@@ -14,7 +14,7 @@ export const homeCards = [
         ],
     },
     {
-        title: '星瀚基金产品系列介绍',
+        title: '基金产品系列介绍',
         content: ['<image>/products-list-20250428.png'],
     },
     {
