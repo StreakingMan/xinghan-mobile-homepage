@@ -89,7 +89,7 @@ const products = computed(() => {
                         },
                     },
                     splitLine: { show: false },
-                    min: -0.3,
+                    min: -1,
                     max: 'dataMax',
                 },
             ],
