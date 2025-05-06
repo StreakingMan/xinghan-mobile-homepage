@@ -134,7 +134,7 @@ const products = computed(() => {
             <VChart class="h-[200px]" :option="p.option" />
         </client-only>
 
-        <VanRow class="text-zinc-600 text-center mt-6" gutter="12">
+        <VanRow class="text-zinc-600 text-center mt-6 mb-6" gutter="12">
             <template
                 v-for="({ title, value }, idx) in [
                     { title: '成立时间', value: '2024.03.05' },
