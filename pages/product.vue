@@ -140,7 +140,7 @@ const products = computed(() => {
                     { title: '成立时间', value: '2024.03.05' },
                     { title: '产品类型', value: p.riskType || '未知' },
                     { title: '风险等级', value: '稳健型' },
-                    { title: '累计收益', value: (parseFloat(p.acc.slice(0, -1)) / 100).toFixed(0) + 1 },
+                    { title: '累计收益', value: parseFloat(p.acc.slice(0, -1)) / 100 + 1 },
                     { title: '今年以来收益', value: p.yearAcc },
                     { title: '年化收益', value: p.yearAcc },
                 ]"
