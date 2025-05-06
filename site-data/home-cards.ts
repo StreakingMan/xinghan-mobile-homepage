@@ -15,7 +15,7 @@ export const homeCards = [
     },
     {
         title: '基金产品系列介绍',
-        content: ['<image>/products-list-20250428.png'],
+        content: ['<image>/products-list-20250506.png'],
     },
     {
         title: '联系我们',
