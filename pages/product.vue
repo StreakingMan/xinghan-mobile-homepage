@@ -137,9 +137,12 @@ const products = computed(() => {
         <VanRow class="text-zinc-600 text-center mt-6" gutter="12">
             <template
                 v-for="({ title, value }, idx) in [
-                    { title: '累计收益', value: p.acc },
-                    { title: '今年以来收益', value: p.yearAcc },
+                    { title: '成立时间', value: '2024.03.05' },
                     { title: '产品类型', value: p.riskType || '未知' },
+                    { title: '风险等级', value: '稳健型' },
+                    { title: '累计收益', value: p.acc+1 },
+                    { title: '今年以来收益', value: p.yearAcc },
+                    { title: '年化收益', value: p.yearAcc },
                 ]"
                 :key="idx"
             >
