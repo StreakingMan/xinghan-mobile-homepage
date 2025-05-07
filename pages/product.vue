@@ -147,7 +147,7 @@ const products = computed(() => {
                 :key="idx"
             >
                 <VanCol span="8">
-                    <div class="bg-gray-200 py-3 rounded mb-3">
+                    <div class="bg-gray-200 py-2 rounded mb-3">
                         <div class="text-sm">{{ title }}</div>
                         <div class="font-bold text-lg">{{ value }}</div>
                     </div>
