@@ -128,7 +128,7 @@ const products = computed(() => {
 
 <template>
     <div v-for="p in products" :key="p.title" class="flex flex-col gap-8">
-        <CommonTitle>{{ p.title }}</CommonTitle>
+        <CommonTitle>{{ p.longTitle }}</CommonTitle>
 
         <client-only>
             <VChart class="h-[200px]" :option="p.option" />
