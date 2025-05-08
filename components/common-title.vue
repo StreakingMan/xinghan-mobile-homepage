@@ -9,10 +9,10 @@
             backgroundImage: 'url(/star-sky.png)',
         }"
     >
-        
+        <span class="h-2 w-2 bg-white rotate-45"></span>
         <span class="relative">
             <slot />
         </span>
-        
+        <span class="h-2 w-2 bg-white rotate-45"></span>
     </div>
 </template>
