@@ -4,7 +4,7 @@
 
 <template>
     <div
-        class="h-10 text-white text-sm px-5 relative flex items-center justify-center overflow-hidden bg-cover mb-2"
+        class="h-10 text-white text-lg px-5 relative flex items-center justify-center overflow-hidden bg-cover mb-2"
         :style="{
             backgroundImage: 'url(/star-sky.png)',
         }"
